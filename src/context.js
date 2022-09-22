@@ -1,6 +1,5 @@
 import React, { useState, useContext, useEffect } from 'react';
 
-import {useCallback} from 'react';
 
 const url = 'https://www.themealdb.com/api/json/v1/1/search.php?s='
 
@@ -11,7 +10,7 @@ const AppProvider = ({children}) =>{
     const [searchTerm, setSearchTerm] = useState('a');
     const [ meals, setMeals] = useState([]);
 
-    const fetchMeals = useCallback (async () =>{
+    const fetchMeals =(async () =>{
         setLoading(true);
         try{
             const response = await fetch(`${url}${searchTerm}`);
@@ -31,7 +30,7 @@ const AppProvider = ({children}) =>{
             console.log(error)
             setLoading(false);
         }
-    })
+    }
     
     useEffect(() =>{
         fetchMeals();
