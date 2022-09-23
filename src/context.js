@@ -10,7 +10,7 @@ const AppProvider = ({children}) =>{
     const [searchTerm, setSearchTerm] = useState('a');
     const [ meals, setMeals] = useState([]);
 
-    const fetchMeals =(async () =>{
+    const fetchMeals =async () =>{
         setLoading(true);
         try{
             const response = await fetch(`${url}${searchTerm}`);
